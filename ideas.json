@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Cloud sofa in cocoa",
+    "description": "A deep, low sofa that anchors the whole room."
+  },
+  {
+    "id": 2,
+    "title": "Arc floor lamp",
+    "description": "Warm light that reaches over a chair or sofa."
+  },
+  {
+    "id": 3,
+    "title": "Leaf plant corner",
+    "description": "A tall plant in a white pot softens any corner."
+  },
+  {
+    "id": 5,
+    "title": "Round mirror in black",
+    "description": "Makes small rooms feel bigger and brighter."
+  },
+  {
+    "id": 7,
+    "title": "Walnut coffee table",
+    "description": "A low table with clean lines and a rich grain."
+  },
+  {
+    "id": 14,
+    "title": "Oak dining table",
+    "description": "A warm oak table that seats six and ages beautifully."
+  }
+]

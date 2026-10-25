@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#7a5230">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<title>DECOR 🪴 Ideas for your home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<style>
+:root{--bg:#fffdfa;--soft:#f6f0e8;--ink:#1c1612;--mute:#76695d;--brown:#8a5a34;--brown2:#4a3222;--line:#e8dccd;--gold:#c9a36b;--hero:#000;--herotxt:#f6efe6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--soft:#161412;--ink:#f5f5f7;--mute:#a1a1a6;--brown:#c49a6c;--brown2:#e0c4a0;--line:#2a2623;--hero:#161412}}
+:root[data-theme="dark"]{--bg:#000;--soft:#161412;--ink:#f5f5f7;--mute:#a1a1a6;--brown:#c49a6c;--brown2:#e0c4a0;--line:#2a2623;--hero:#161412}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.47}h1,h2,h3,.price,nav b{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+:focus-visible{outline:2px solid var(--brown);outline-offset:2px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc(50% - 560px));background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);font-size:13px}
+nav b{font-size:26px;letter-spacing:.01em;font-weight:700}nav a{color:var(--mute);text-decoration:none;margin-left:22px}nav a:hover{color:var(--ink)}
+.pill{background:var(--ink);color:var(--bg);border-radius:980px;padding:7px 16px;font-size:13px;font-weight:500}
+.pill.brown{background:var(--brown);color:#fff}.pill.ghost{background:transparent;color:var(--brown);border:1px solid var(--brown)}
+.hero{background:radial-gradient(ellipse 80% 60% at 50% 100%,#3a281a 0,#000 70%);color:var(--herotxt);text-align:center;padding:96px 20px 0;overflow:hidden;position:relative}
+.hero h1{font-size:clamp(52px,10vw,116px);line-height:1;letter-spacing:-.02em;margin:0 auto 16px;max-width:980px;font-weight:600}
+.hero p{font-size:clamp(18px,2.4vw,26px);color:#a1a1a6;margin:0 auto 28px;max-width:640px;line-height:1.3}
+.hero .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.hero .pill{padding:12px 24px;font-size:17px;background:#f5f5f7;color:#000}.hero .pill.brown{background:#a0703f;color:#fff}
+.stage{max-width:760px;margin:0 auto;display:block;width:100%}
+section{max-width:1120px;margin:0 auto;padding:72px 20px}
+h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.025em;line-height:1.08;margin:0 0 8px}
+.sub{color:var(--mute);font-size:19px;margin:0 0 28px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
+.chip{background:var(--soft);border-radius:980px;padding:8px 16px;font-size:14px;color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+input[type=search]{flex:1;min-width:180px;background:var(--soft);border:1px solid transparent;border-radius:980px;padding:10px 18px;font:inherit;font-size:15px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.card{background:var(--soft);border-radius:22px;overflow:hidden;text-align:left;position:relative;display:flex;flex-direction:column;transition:transform .25s}
+.card:hover{transform:scale(1.015)}
+.card svg{display:block;width:100%;height:auto}
+.card .b{padding:16px 20px 22px}.card h3{margin:0 0 2px;font-size:19px;letter-spacing:-.01em}.card p{margin:0;color:var(--mute);font-size:14px}
+.tag{position:absolute;top:12px;left:12px;background:#000;color:#e8cfae;border-radius:980px;padding:4px 11px;font-size:12px;font-weight:600}
+.heart{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);color:#4a3222;font-size:17px;line-height:36px;padding:0}
+.heart[aria-pressed=true]{background:var(--brown);color:#fff}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:48px 0}
+.prem{background:var(--hero);color:var(--herotxt);max-width:none;padding:0}
+.prem>div{max-width:1120px;margin:0 auto;padding:88px 20px}
+.prem h2{text-align:center}.prem .sub{text-align:center;color:#a1a1a6}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:820px;margin:36px auto 0}
+.plan{border-radius:24px;padding:32px;background:#1c1917;border:1px solid #2e2a26}
+.plan.hi{background:#f5f1ec;color:#1d1d1f;border:0}
+.plan h3{margin:0;font-size:22px}.price{font-size:44px;font-weight:700;letter-spacing:-.03em;margin:8px 0 4px}.price small{font-size:16px;font-weight:400;opacity:.65}
+.plan ul{list-style:none;padding:0;margin:20px 0 26px;font-size:15px}.plan li{padding:7px 0;border-top:1px solid rgba(128,128,128,.25)}
+.plan .pill{width:100%;padding:12px}.plan.hi .pill{background:#7a5230;color:#fff}.plan:not(.hi) .pill{background:#f5f5f7;color:#000}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.feat div{background:var(--soft);border-radius:22px;padding:28px}.feat h3{margin:0 0 6px;font-size:20px}.feat p{margin:0;color:var(--mute);font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:12px;text-align:center;padding:28px 20px}
+dialog{border:0;border-radius:26px;padding:0;width:min(640px,calc(100% - 24px));max-height:90vh;background:var(--bg);color:var(--ink);box-shadow:0 30px 90px rgba(0,0,0,.45)}
+dialog::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+dialog .x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;z-index:2}
+dialog .in{padding:22px 28px 30px}dialog h3{font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+.sw{display:flex;gap:8px;margin:14px 0}.sw i{width:38px;height:38px;border-radius:50%;border:1px solid var(--line)}
+.box{background:var(--soft);border-radius:16px;padding:16px 18px;margin-top:14px;font-size:15px}.box b{display:block;margin-bottom:4px}
+.box ul{margin:6px 0 0;padding-left:20px}
+.lock{text-align:center;background:#000;color:#f5f5f7;border-radius:16px;padding:22px;margin-top:14px}.lock p{color:#a1a1a6;margin:4px 0 14px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#000;color:#fff;border-radius:980px;padding:10px 20px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:50}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes glow{0%,100%{opacity:.07}50%{opacity:.24}}
+@keyframes pop{0%{transform:scale(.92);opacity:0}100%{transform:none;opacity:1}}
+.hero h1{animation:rise .9s .1s both}.hero p{animation:rise .9s .3s both}.hero .row{animation:rise .9s .5s both}.stage{animation:rise 1.2s .7s both}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite}
+.glow{animation:glow 4s ease-in-out infinite}
+.card{animation:rise .7s backwards;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(74,50,34,.22)}
+.card:nth-child(6n+2){animation-delay:.07s}.card:nth-child(6n+3){animation-delay:.14s}.card:nth-child(6n+4){animation-delay:.21s}.card:nth-child(6n+5){animation-delay:.28s}.card:nth-child(6n+6){animation-delay:.35s}
+.heart[aria-pressed=true]{animation:pop .35s}
+dialog[open]{animation:pop .4s cubic-bezier(.2,.9,.3,1)}
+.card img,dialog img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pill{transition:transform .2s,opacity .2s}.pill:active{transform:scale(.96)}
+.studio{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.pan{background:var(--soft);border-radius:26px;padding:30px}.pan h3{margin:0 0 6px;font-size:26px}
+.pan label{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px}
+.pan select,.pan input,.pan textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;color:var(--ink)}
+.pan textarea{min-height:90px;resize:vertical}
+h2{font-size:clamp(40px,6vw,68px)}.card h3{font-size:25px;font-weight:700;line-height:1.1}.pan h3{font-size:32px}.feat h3{font-size:27px}.plan h3{font-size:30px}.price{font-size:62px}dialog h3{font-size:42px}
+@keyframes shine{to{background-position:-220% 0}}
+@keyframes drift{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-420px);opacity:0}}
+@keyframes sheen{to{left:140%}}
+.hero h1{background:linear-gradient(100deg,#f6efe6 20%,#c9a36b 45%,#f6efe6 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .9s .1s both,shine 6s 1.5s linear infinite}
+.dust{position:absolute;inset:0;pointer-events:none;overflow:hidden}.dust i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:#c9a36b;animation:drift 9s linear infinite}
+.hero>*:not(.dust){position:relative}
+.pill.brown{background:linear-gradient(135deg,#a8743f,#6b4423);color:#fff;position:relative;overflow:hidden}
+.pill.brown::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sheen 3.5s ease-in-out infinite}
+.hero .pill.brown{background:linear-gradient(135deg,#b8854f,#7a5230)}
+.rv:not(.in){opacity:0;transform:translateY(34px)}.rv{transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;text-align:center;padding-top:56px;padding-bottom:0}.stats b{display:block;font-family:"Cormorant Garamond",serif;font-size:72px;line-height:1;color:var(--brown)}.stats span{color:var(--mute);font-size:15px}
+.sw i{cursor:pointer;transition:transform .2s}.sw i:hover{transform:scale(1.25)}
+.sel{background:var(--soft);border:0;border-radius:980px;padding:9px 14px;font:inherit;font-size:14px;color:var(--ink)}
+.theme{background:transparent;font-size:18px;margin-left:14px}
+.qopt{display:block;width:100%;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:8px;transition:transform .2s,border-color .2s}.qopt:hover{transform:translateX(4px);border-color:var(--brown)}
+.mb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.dot{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);padding:0;transition:transform .2s}.dot:hover{transform:scale(1.15)}.dot[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 3px var(--bg)}.dot.lk,.cmb.lk{opacity:.5}
+.cmb{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-top:6px;transition:border-color .2s}.cmb:hover{border-color:var(--brown)}.cmb b{display:inline;margin:0}.cmb>span{padding-left:6px;white-space:nowrap}.cmb i{display:inline-block;width:22px;height:22px;border-radius:50%;margin-left:-6px;border:2px solid var(--bg);vertical-align:middle}
+#dc>svg,#dc>img{animation:pop .35s both}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(520px) rotate(720deg);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+#pay .in{text-align:center;padding:48px 28px 36px;position:relative;overflow:hidden}
+.conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}.conf i{position:absolute;top:-10px;width:8px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
+.okc{width:96px;height:96px;margin:0 auto 14px;position:relative}.okc:before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--gold);animation:ring 1.4s .2s infinite}.okc svg{position:relative;width:96px;height:96px}.okc circle{fill:#7a5230}.okc path{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70;animation:draw .6s .5s forwards}
+.spin{width:44px;height:44px;border:4px solid var(--line);border-top-color:var(--brown);border-radius:50%;margin:20px auto;animation:spin .8s linear infinite}
+#pay input{width:100%;text-align:center;letter-spacing:.12em;font:inherit;font-size:18px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px;color:var(--ink);text-transform:uppercase;margin:12px 0 4px}
+.err{color:#b3261e;font-size:14px;min-height:20px;margin-top:8px}
+html[dir=rtl] nav a{margin-left:0;margin-right:22px}html[dir=rtl] .card>button{text-align:right!important}html[dir=rtl] .qopt,html[dir=rtl] .cmb{text-align:right}html[dir=rtl] .tag{left:auto;right:12px}html[dir=rtl] .heart{right:auto;left:10px}html[dir=rtl] dialog .x{right:auto;left:12px}html[dir=rtl] .badge{margin-left:0;margin-right:8px}
+html[lang=ar] body,html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .price,html[lang=ar] nav b,html[lang=ar] .stats b{font-family:"Cairo",sans-serif}html[lang=ar] *{letter-spacing:0!important}.mb svg,.mb img{width:100%;border-radius:12px;display:block;animation:pop .5s both}.out{font-size:15px;margin-top:16px;line-height:1.55;white-space:pre-wrap}
+.row2{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);white-space:normal}
+.badge{display:inline-block;background:#000;color:#e8cfae;border-radius:980px;padding:3px 10px;font-size:12px;font-weight:600;margin-left:8px;vertical-align:middle;font-family:"DM Sans",sans-serif}
+@media (max-width:640px){nav a{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media (display-mode:window-controls-overlay){nav{-webkit-app-region:drag;app-region:drag;height:env(titlebar-area-height,48px);padding-right:calc(100% - env(titlebar-area-x,0px) - env(titlebar-area-width,100%) + 20px)}nav button,nav select,nav a{-webkit-app-region:no-drag;app-region:no-drag}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <b>DECOR 🪴</b>
+  <span><a href="#ideas">Ideas</a><a href="#studio">Studio</a><a href="#premium">Premium</a><select class="sel" id="lng" aria-label="Language"><option value="en">English</option><option value="fr">Français</option><option value="ar">العربية</option></select><button class="theme" id="thm" aria-label="Switch light or dark">◐</button><button class="pill brown" id="navBtn" style="margin-left:8px">Go Premium</button></span>
+</nav>
+
+<header class="hero"><div class="dust" id="dust" aria-hidden="true"></div>
+  <h1>Make every room feel like yours.</h1>
+  <p>Browse furniture and decoration ideas in warm whites, rich browns and deep black.</p>
+  <div class="row"><a class="pill" href="#ideas" style="text-decoration:none">Explore ideas</a><button class="pill brown" data-prem>Try Premium</button></div>
+  <svg class="stage" viewBox="0 0 760 260" role="img" aria-label="A brown sofa with a lamp and a plant">
+    <rect x="0" y="200" width="760" height="60" fill="#1c1917"/>
+    <rect x="250" y="80" width="140" height="90" rx="6" fill="#f5f1ec"/><rect x="262" y="92" width="116" height="66" fill="#1d1d1f"/><circle cx="320" cy="125" r="18" fill="#a0703f"/>
+    <rect x="140" y="140" width="400" height="62" rx="16" fill="#7a5230"/>
+    <rect x="120" y="120" width="50" height="82" rx="14" fill="#5d3e23"/><rect x="510" y="120" width="50" height="82" rx="14" fill="#5d3e23"/>
+    <rect x="180" y="124" width="150" height="50" rx="12" fill="#946239"/><rect x="350" y="124" width="150" height="50" rx="12" fill="#946239"/>
+    <rect x="215" y="196" width="10" height="16" fill="#000"/><rect x="455" y="196" width="10" height="16" fill="#000"/>
+    <rect x="610" y="90" width="5" height="112" fill="#e8dccf"/><ellipse class="glow" cx="613" cy="125" rx="70" ry="90" fill="#e8c48a"/><path d="M586 90 L640 90 L628 52 L598 52Z" fill="#f5f1ec"/>
+    <path d="M60 202 h60 l-8 -44 h-44z" fill="#f5f1ec"/><g class="sway"><ellipse cx="90" cy="130" rx="14" ry="34" fill="#6d8f5a" transform="rotate(-18 90 130)"/><ellipse cx="96" cy="126" rx="12" ry="32" fill="#4f7142" transform="rotate(16 96 126)"/></g>
+  </svg>
+</header>
+
+<section class="stats rv" id="stats"><div><b data-n="21">0</b><span>ideas to explore</span></div><div><b data-n="6">0</b><span>rooms covered</span></div><div><b data-n="9">0</b><span>designer exclusives</span></div><div><b data-n="3">0</b><span>colors, done right</span></div></section>
+
+<section id="ideas">
+  <h2>Ideas for every corner.</h2>
+  <p class="sub">Save what you love. Premium ideas are marked with a black tag.</p>
+  <div class="tools">
+    <input type="search" id="q" placeholder="Search sofa, lamp, bedroom…" aria-label="Search ideas"><select class="sel" id="srt" aria-label="Sort ideas"><option value="">Featured</option><option value="a">Price: low to high</option><option value="d">Price: high to low</option></select><button class="pill brown" id="qz">Find my style</button>
+  </div>
+  <div class="tools" id="chips" role="group" aria-label="Filters"></div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+</section>
+
+<section>
+  <h2>Why DECOR.</h2>
+  <p class="sub">Simple to browse. Easy to save. Made for your space.</p>
+  <div class="feat">
+    <div><h3>Curated palettes</h3><p>Every idea comes in white, brown and black tones that work together.</p></div>
+    <div><h3>Save your favorites</h3><p>Tap the heart to keep ideas and find them again under Saved.</p></div>
+    <div><h3>Real placement tips</h3><p>Know where to put it, how big it should be, and what to pair it with.</p></div>
+  </div>
+</section>
+
+<section id="studio">
+  <h2>Design studio.</h2>
+  <p class="sub">Plan a whole room, or ask the DECOR designer.</p>
+  <div class="studio">
+    <div class="pan"><h3>Room planner<span class="badge">Premium</span></h3><p style="color:var(--mute);margin:0">Pick a room and a budget. Get a shopping plan that fits.</p>
+      <label for="pr">Room</label><select id="pr"><option>Living room</option><option>Bedroom</option><option>Kitchen</option><option>Workspace</option><option>Entryway</option><option>Outdoor</option></select>
+      <label for="pb">Budget in dollars</label><input id="pb" type="number" min="100" step="100" value="3000">
+      <div class="row2"><button class="pill brown" id="pgo">Build my plan</button><button class="pill ghost" id="pdl" hidden>Download plan</button></div>
+      <div id="pout" class="out" aria-live="polite"></div></div>
+    <div class="pan"><h3>Ask the designer<span class="badge" id="abadge">1 free try</span></h3><p style="color:var(--mute);margin:0">Describe your room and get a full design in white, brown and black.</p>
+      <label for="ai">Your room</label><textarea id="ai" placeholder="Small bedroom, north-facing, I love warm browns and white linen."></textarea>
+      <div class="row2"><button class="pill brown" id="ago">Design it</button></div>
+      <div id="aout" class="out" aria-live="polite"></div></div>
+    <div class="pan"><h3>Mood board<span class="badge">Premium</span></h3><p style="color:var(--mute);margin:0">Your saved ideas on one board, with a matching palette.</p><div id="mb"></div></div>
+  </div>
+</section>
+
+<section class="prem" id="premium"><div>
+  <h2>DECOR Premium.</h2>
+  <p class="sub">Better designs, full guides, and shopping lists for every idea.</p>
+  <div class="plans">
+    <div class="plan"><h3>Free</h3><div class="price">$0</div>
+      <ul><li>12 free ideas</li><li>Save favorites and add photos</li><li>Room plans with 2 items</li><li>1 free AI design</li><li>5 furniture colors and 3 combos</li></ul>
+      <button class="pill" id="freeBtn">Keep browsing</button></div>
+    <div class="plan hi"><h3>Premium</h3><div class="price">$9<small> one-time</small></div>
+      <ul><li>9 designer ideas, including outdoor and entry</li><li>Full room planner with your budget</li><li>Unlimited AI room designs</li><li>Palettes and shopping checklists</li><li>Download your plan</li><li>Full mood boards and style quiz</li><li>12 furniture colors and 8 designer combos</li></ul>
+      <button class="pill" id="buyBtn" data-prem-buy>Start Premium</button></div>
+  </div>
+</div></section>
+
+<footer>DECOR 🪴 · Premium is a one-time $9 payment through PayPal.</footer>
+
+<dialog id="dlg" aria-labelledby="dt"><button class="x" id="dx" aria-label="Close">✕</button><div id="dc"></div></dialog>
+<dialog id="pay" aria-label="Premium payment"><button class="x" id="px" aria-label="Close">✕</button><div id="pc"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var ideas=[
+{id:1,t:"Cloud sofa in cocoa",c:["Furniture","Living room"],a:"sofa",th:["#efe7de","#7a5230","#1d1d1f"],d:"A deep, low sofa that anchors the whole room.",tips:["Leave 45 cm between sofa and coffee table.","Pair with one white and one black cushion.","Keep the rug at least 20 cm wider than the sofa."],pal:["#ffffff","#7a5230","#1d1d1f"],list:["3-seat sofa","Wool rug","2 cushions"]},
+{id:2,t:"Arc floor lamp",c:["Decor","Living room"],a:"lamp",th:["#f1ece6","#1d1d1f","#c49a6c"],d:"Warm light that reaches over a chair or sofa.",tips:["Choose a warm 2700K bulb.","Place the base beside an armchair.","A black frame keeps the look sharp."],pal:["#f5f1ec","#1d1d1f","#c49a6c"],list:["Arc lamp","Warm bulb"]},
+{id:3,t:"Leaf plant corner",c:["Decor","Entryway"],a:"plant",th:["#f3efe9","#6d8f5a","#7a5230"],d:"A tall plant in a white pot softens any corner.",tips:["Pick a spot with bright, indirect light.","Use a white pot with a brown tray.","Group in odd numbers for balance."],pal:["#ffffff","#6d8f5a","#7a5230"],list:["Large plant","Ceramic pot","Tray"]},
+{id:4,t:"Oak and black shelf",c:["Furniture","Workspace"],a:"shelf",th:["#ece3d8","#946239","#1d1d1f"],d:"Open shelving that mixes books, art and objects.",tips:["Leave 30% of each shelf empty.","Stack books both ways.","Add one black object per shelf."],pal:["#ece3d8","#946239","#1d1d1f"],list:["Shelf unit","Books","Small vase"]},
+{id:5,t:"Round mirror in black",c:["Decor","Entryway"],a:"mirror",th:["#f5f1ec","#1d1d1f","#946239"],d:"Makes small rooms feel bigger and brighter.",tips:["Hang the center at eye level.","Face it toward a window.","Choose a thin black frame."],pal:["#ffffff","#1d1d1f","#946239"],list:["Round mirror","Wall hook"]},
+{id:6,t:"Platform bed, linen white",c:["Furniture","Bedroom"],a:"bed",th:["#efe9e2","#ffffff","#5d3e23"],d:"A calm bed with a brown headboard and white linen.",tips:["Layer white sheets with a brown throw.","Add two side tables of equal height.","Keep the headboard wall clear."],pal:["#ffffff","#5d3e23","#1d1d1f"],list:["Bed frame","Linen set","Throw"]},
+{id:7,t:"Walnut coffee table",c:["Furniture","Living room"],a:"table",th:["#f1ece6","#5d3e23","#1d1d1f"],d:"A low table with clean lines and a rich grain.",tips:["Style with a tray, a book and a candle.","Round corners work best in tight spaces.","Pick a height just below the sofa seat."],pal:["#f5f1ec","#5d3e23","#1d1d1f"],list:["Coffee table","Tray","Candle"]},
+{id:8,t:"Textured wool rug",c:["Decor","Bedroom"],a:"rug",th:["#ede5da","#f8f5f0","#7a5230"],d:"A thick off-white rug with a brown border.",tips:["Place two thirds of the bed on the rug.","Choose a low pile for easy cleaning.","Vacuum slowly in one direction."],pal:["#f8f5f0","#7a5230","#1d1d1f"],list:["Wool rug","Rug pad"]},
+{id:9,t:"Gallery vase trio",c:["Decor","Living room"],a:"vase",th:["#f3eee8","#ffffff","#1d1d1f"],d:"Three vases in different heights for any surface.",tips:["Mix matte white, brown and black.","Vary the heights by 10 cm or more.","Add dried stems for texture."],pal:["#ffffff","#7a5230","#1d1d1f"],list:["3 vases","Dried stems"]},
+{id:10,t:"Atelier lounge set",p:1,c:["Furniture","Living room"],a:"sofa",th:["#1d1d1f","#c49a6c","#f5f1ec"],d:"A designer layout: leather sofa, black frame chairs and a stone table.",tips:["Anchor with one oversized rug.","Mix leather and boucle for depth.","Use three light sources at different heights."],pal:["#1d1d1f","#c49a6c","#f5f1ec"],list:["Leather sofa","2 frame chairs","Stone table","Rug"]},
+{id:11,t:"Hotel suite bedroom",p:1,c:["Decor","Bedroom"],a:"bed",th:["#2b2118","#f5f1ec","#c49a6c"],d:"A boutique-hotel look with layered whites and a brown accent wall.",tips:["Use a paneled wall behind the bed.","Add wall sconces instead of lamps.","Fold a throw across the foot of the bed."],pal:["#f5f1ec","#4a3222","#c49a6c"],list:["Wall panels","Sconces","Bedding set"]},
+{id:12,t:"Gallery wall in monochrome",p:1,c:["Decor","Entryway"],a:"mirror",th:["#1d1d1f","#f5f1ec","#946239"],d:"A balanced wall of black frames, white mats and one brown piece.",tips:["Lay the layout on the floor first.","Keep 5 cm between frames.","Center the group at eye level."],pal:["#1d1d1f","#f5f1ec","#946239"],list:["6 frames","White mats","Picture hooks"]},
+{id:13,t:"Executive home office",p:1,c:["Furniture","Workspace"],a:"shelf",th:["#3a281a","#c49a6c","#1d1d1f"],d:"A dark walnut desk, built-in shelving and a warm task lamp.",tips:["Place the desk facing the door.","Hide cables in a brown cord box.","Light the shelves from behind."],pal:["#3a281a","#c49a6c","#1d1d1f"],list:["Desk","Task lamp","Cord box"]},
+{id:14,t:"Oak dining table",c:["Furniture","Kitchen"],a:"table",$:900,th:["#f1ece6","#946239","#1d1d1f"],d:"A warm oak table that seats six and ages beautifully.",tips:["Leave 90 cm around the table for chairs.","Use black chairs for contrast.","Center a single vase, not a runner."],pal:["#ffffff","#946239","#1d1d1f"],list:["Oak table","6 chairs"]},
+{id:15,t:"Pendant light trio",c:["Decor","Kitchen"],a:"lamp",$:260,th:["#efe9e2","#1d1d1f","#c49a6c"],d:"Three black pendants over an island or table.",tips:["Hang them 75 cm above the surface.","Space them 60 cm apart.","Use a dimmer for evening light."],pal:["#f5f1ec","#1d1d1f","#c49a6c"],list:["3 pendants","Dimmer switch"]},
+{id:16,t:"Herb wall shelf",c:["Decor","Kitchen"],a:"shelf",$:140,th:["#f3efe9","#7a5230","#6d8f5a"],d:"Fresh herbs in white pots on a slim brown shelf.",tips:["Mount it near a window.","Pick basil, mint and thyme.","Use pots with drainage trays."],pal:["#ffffff","#7a5230","#6d8f5a"],list:["Wall shelf","3 pots"]},
+{id:17,t:"Terrace lounge",p:1,c:["Furniture","Outdoor"],a:"sofa",$:2400,th:["#2b2118","#c49a6c","#f5f1ec"],d:"A weatherproof sofa, black side tables and layered outdoor rugs.",tips:["Choose teak or powder-coated aluminum.","Add string lights at 2.4 m.","Use a rug that fits under all legs."],pal:["#2b2118","#c49a6c","#f5f1ec"],list:["Outdoor sofa","2 tables","Rug","String lights"]},
+{id:18,t:"Lantern path lights",p:1,c:["Decor","Outdoor"],a:"lamp",$:320,th:["#1d1d1f","#e8c48a","#7a5230"],d:"Black lanterns that line a path with a soft glow.",tips:["Space them 2 m apart.","Choose solar models with warm light.","Stagger heights for a natural feel."],pal:["#1d1d1f","#e8c48a","#7a5230"],list:["6 lanterns","Stakes"]},
+{id:19,t:"Boucle accent chair",p:1,c:["Furniture","Living room"],a:"sofa",$:780,th:["#ede5da","#f8f5f0","#5d3e23"],d:"A sculpted white chair that becomes the room’s focal point.",tips:["Angle it 30 degrees toward the sofa.","Add a small brown side table.","Keep one wall behind it empty."],pal:["#f8f5f0","#5d3e23","#1d1d1f"],list:["Accent chair","Side table"]},
+{id:20,t:"Marble console",p:1,c:["Furniture","Entryway"],a:"table",$:1100,th:["#f5f1ec","#ffffff","#1d1d1f"],d:"A slim marble top on black legs for a grand entrance.",tips:["Style with a lamp, a tray and a bowl.","Hang a mirror 15 cm above it.","Keep depth under 35 cm."],pal:["#ffffff","#1d1d1f","#946239"],list:["Console","Tray","Lamp"]},
+{id:21,t:"Spa bedroom retreat",p:1,c:["Decor","Bedroom"],a:"bed",$:1800,th:["#3a281a","#f5f1ec","#c49a6c"],d:"Soft light, linen layers and a brown accent wall for deep rest.",tips:["Use blackout curtains in warm white.","Add a bench at the foot of the bed.","Keep screens out of sight."],pal:["#f5f1ec","#4a3222","#c49a6c"],list:["Curtains","Bench","Linen set"]}
+];
+var S={f:"All",q:"",saved:[],prem:false},chips=["All","Furniture","Decor","Living room","Bedroom","Kitchen","Outdoor","Workspace","Entryway","Premium","Saved"];
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+S.saved=ld("decor-saved",[]);S.prem=ld("decor-prem",false);S.ph=ld("decor-photos",{});
+function pic(i){return S.ph[i.id]?'<img src="'+S.ph[i.id]+'" alt="'+i.t+'">':art(i)}
+document.addEventListener("change",function(e){var f=e.target;if(!f.dataset||!f.dataset.up||!f.files[0])return;var id=+f.dataset.up,r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var w=Math.min(900,im.width),c=document.createElement("canvas");c.width=w;c.height=Math.round(im.height*w/im.width);c.getContext("2d").drawImage(im,0,0,c.width,c.height);S.ph[id]=c.toDataURL("image/jpeg",.8);sv("decor-photos",S.ph);show();openIdea(id);toast("Photo added")};im.src=r.result};r.readAsDataURL(f.files[0])});
+function art(i){var t=(S.col&&S.col[i.id])||i.th,b=t[0],m=t[1],k=t[2],s='<svg viewBox="0 0 200 150" role="img" aria-label="'+i.t+'"><rect width="200" height="150" fill="'+b+'"/><rect y="118" width="200" height="32" fill="rgba(0,0,0,.12)"/>',e='</svg>';
+var o={sofa:'<rect x="30" y="68" width="140" height="44" rx="12" fill="'+m+'"/><rect x="20" y="58" width="26" height="54" rx="10" fill="'+m+'" opacity=".8"/><rect x="154" y="58" width="26" height="54" rx="10" fill="'+m+'" opacity=".8"/><rect x="50" y="62" width="48" height="30" rx="8" fill="'+k+'" opacity=".25"/><rect x="102" y="62" width="48" height="30" rx="8" fill="'+k+'" opacity=".25"/><rect x="40" y="112" width="6" height="8" fill="#000"/><rect x="154" y="112" width="6" height="8" fill="#000"/>',
+lamp:'<path d="M70 118 V50 Q70 24 110 24" stroke="'+m+'" stroke-width="4" fill="none"/><path d="M96 24 h34 l-6 18 h-22z" fill="'+k+'"/><ellipse cx="70" cy="120" rx="22" ry="5" fill="'+m+'"/>',
+plant:'<path d="M82 120 h36 l-5 -34 h-26z" fill="#fff"/><rect x="78" y="118" width="44" height="5" fill="'+k+'"/><ellipse cx="90" cy="58" rx="12" ry="34" fill="'+m+'" transform="rotate(-22 90 58)"/><ellipse cx="110" cy="58" rx="12" ry="34" fill="'+m+'" opacity=".8" transform="rotate(22 110 58)"/><ellipse cx="100" cy="50" rx="11" ry="36" fill="'+m+'"/>',
+shelf:'<rect x="46" y="22" width="108" height="98" fill="none" stroke="'+m+'" stroke-width="6"/><rect x="46" y="54" width="108" height="5" fill="'+m+'"/><rect x="46" y="88" width="108" height="5" fill="'+m+'"/><rect x="58" y="30" width="10" height="24" fill="'+k+'"/><rect x="70" y="36" width="8" height="18" fill="#fff"/><circle cx="120" cy="44" r="9" fill="'+k+'"/><rect x="60" y="64" width="40" height="24" fill="#fff" opacity=".8"/><rect x="116" y="68" width="22" height="20" fill="'+k+'" opacity=".7"/>',
+mirror:'<circle cx="100" cy="68" r="46" fill="'+m+'"/><circle cx="100" cy="68" r="39" fill="#e9eef0" opacity=".9"/><path d="M80 90 Q100 40 126 52" stroke="#fff" stroke-width="5" fill="none" opacity=".6"/><circle cx="100" cy="20" r="3" fill="'+k+'"/>',
+bed:'<rect x="26" y="40" width="148" height="32" rx="6" fill="'+k+'"/><rect x="34" y="76" width="132" height="34" rx="8" fill="'+m+'"/><rect x="40" y="62" width="40" height="18" rx="8" fill="#fff" opacity=".9"/><rect x="86" y="62" width="40" height="18" rx="8" fill="#fff" opacity=".9"/><rect x="26" y="100" width="148" height="12" rx="5" fill="'+k+'" opacity=".6"/>',
+table:'<ellipse cx="100" cy="86" rx="66" ry="16" fill="'+m+'"/><rect x="62" y="90" width="6" height="30" fill="'+k+'"/><rect x="132" y="90" width="6" height="30" fill="'+k+'"/><rect x="86" y="68" width="30" height="10" fill="#fff"/><circle cx="130" cy="76" r="6" fill="'+k+'"/>',
+rug:'<rect x="28" y="40" width="144" height="74" rx="10" fill="'+k+'"/><rect x="38" y="48" width="124" height="58" rx="6" fill="'+m+'"/><path d="M50 62 h100 M50 77 h100 M50 92 h100" stroke="'+k+'" stroke-width="2" opacity=".25"/>',
+vase:'<path d="M54 120 q-14 -34 8 -50 q-4 -8 6 -8 q10 0 6 8 q22 16 8 50z" fill="'+m+'"/><path d="M104 120 q-10 -52 6 -78 h8 q16 26 6 78z" fill="'+k+'"/><path d="M142 120 q-8 -22 4 -36 h8 q12 14 4 36z" fill="#7a5230"/><path d="M68 62 l-6 -24 M114 42 l8 -22" stroke="#6d8f5a" stroke-width="2"/>'};
+return s+(o[i.a]||"")+e}
+function show(){var g=document.getElementById("grid"),h="",n=0;
+S.list().forEach(function(i){var f=S.f,ok=f=="All"||(f=="Premium"&&i.p)||(f=="Saved"&&S.saved.indexOf(i.id)>-1)||i.c.indexOf(f)>-1;
+if(S.q&&(i.t+" "+i.c.join(" ")+" "+i.d).toLowerCase().indexOf(S.q)<0)ok=false;if(!ok)return;n++;var sd=S.saved.indexOf(i.id)>-1;
+h+='<div class="card" data-id="'+i.id+'">'+(i.p?'<span class="tag">Premium</span>':'')+'<button class="heart" aria-pressed="'+sd+'" aria-label="Save '+i.t+'" data-h="'+i.id+'">'+(sd?'♥':'♡')+'</button><button style="background:none;padding:0;text-align:left" data-o="'+i.id+'" aria-label="Open '+i.t+'">'+pic(i)+'<div class="b"><h3>'+i.t+'</h3><p>'+i.c.join(" · ")+' · $'+price(i)+'</p></div></button></div>'});
+g.innerHTML=n?h:'<div class="empty">'+(S.f=="Saved"?"Nothing saved yet. Tap the heart on an idea to keep it.":"No ideas match. Try a different search or filter.")+'</div>'}
+function chipsUI(){var c=document.getElementById("chips");c.innerHTML=chips.map(function(x){return '<button class="chip" aria-pressed="'+(S.f==x)+'" data-c="'+x+'">'+x+'</button>'}).join("")}
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.className="toast on";setTimeout(function(){t.className="toast"},2200)}
+function openIdea(id){var i=ideas.filter(function(x){return x.id==id})[0],lockd=i.p&&!S.prem,d=document.getElementById("dc");
+var sw=i.pal.map(function(c){return '<i title="Copy '+c+'" data-hex="'+c+'" style="background:'+c+'"></i>'}).join("");
+var body=lockd?'<div class="lock"><b>Premium idea</b><p>Unlock the full guide, palette and shopping list.</p><button class="pill brown" data-prem>Go Premium</button></div>'
+:'<div class="box"><b>Placement tips</b><ul>'+i.tips.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul></div>'+(S.prem?'<div class="box"><b>Shopping checklist</b><ul>'+i.list.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul></div>':'<div class="box"><b>Shopping checklist</b>Included with Premium. <a href="#premium" data-prem style="color:var(--brown)">See Premium</a></div>');
+d.innerHTML=pic(i)+'<div class="in"><h3 id="dt">'+i.t+'</h3><p style="color:var(--mute);margin:0">'+i.d+'</p>'+(lockd?'':'<div class="sw" aria-label="Color palette">'+sw+'</div>')+body+'<div style="margin-top:18px"><button class="pill brown" data-h="'+i.id+'">'+(S.saved.indexOf(i.id)>-1?'Remove from saved':'Save idea')+'</button><label class="pill ghost" style="cursor:pointer;margin-left:8px;display:inline-block">Add your photo<input type="file" accept="image/*" data-up="'+i.id+'" hidden></label>'+(S.ph[i.id]?'<button class="pill ghost" data-rp="'+i.id+'" style="margin-left:8px">Remove photo</button>':'')+'</div></div>';
+custom(i,lockd);var dl=document.getElementById("dlg");if(!dl.open)dl.showModal()}
+function toggle(id){var k=S.saved.indexOf(id);if(k>-1){S.saved.splice(k,1);toast("Removed from saved")}else{S.saved.push(id);toast("Saved")}sv("decor-saved",S.saved);show()}
+function goPrem(){document.getElementById("dlg").close();document.getElementById("premium").scrollIntoView()}
+function buy(){payUI(1)}
+function unlock(){S.prem=true;sv("decor-prem",true);upd();show()}
+function upd(){var b=document.getElementById("buyBtn"),n=document.getElementById("navBtn");
+b.textContent=S.prem?"You’re Premium":"Start Premium";b.disabled=S.prem;n.textContent=S.prem?"Premium ✓":"Go Premium"}
+document.addEventListener("click",function(e){var t=e.target.closest("button,a");if(!t)return;
+if(t.dataset.h){e.stopPropagation();var id=+t.dataset.h;toggle(id);if(document.getElementById("dlg").open)openIdea(id);return}
+if(t.dataset.o){openIdea(+t.dataset.o);return}
+if(t.dataset.c){S.f=t.dataset.c;chipsUI();show();return}
+if(t.id=="buyBtn"){buy();return}
+if(t.id=="navBtn"||t.hasAttribute("data-prem")){e.preventDefault();goPrem();return}
+if(t.id=="freeBtn"){document.getElementById("ideas").scrollIntoView();return}
+if(t.id=="dx"){document.getElementById("dlg").close()}});
+document.getElementById("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
+document.getElementById("q").addEventListener("input",function(){S.q=this.value.toLowerCase().trim();show()});
+function price(i){return i.$||({sofa:1200,lamp:180,plant:60,shelf:420,mirror:150,bed:1500,table:380,rug:320,vase:70})[i.a]}
+var lastPlan="",_u=upd;upd=function(){_u();document.getElementById("abadge").textContent=S.prem?"Unlimited":"1 free try"};
+document.getElementById("pgo").onclick=function(){
+var r=document.getElementById("pr").value,b=+document.getElementById("pb").value||0,tot=0,pick=[],o=document.getElementById("pout"),
+pool=ideas.filter(function(i){return i.c.indexOf(r)>-1&&(S.prem||!i.p)}).sort(function(a,c){return price(a)-price(c)});
+pool.forEach(function(i){if(tot+price(i)<=b&&(S.prem||pick.length<2)){pick.push(i);tot+=price(i)}});
+if(!pick.length){o.textContent="Nothing fits yet. Raise the budget"+(S.prem?".":" or go Premium to unlock more ideas for this room.");lastPlan="";document.getElementById("pdl").hidden=true;return}
+lastPlan="DECOR plan: "+r+"\nBudget $"+b+"\n\n"+pick.map(function(i){return "- "+i.t+" ($"+price(i)+"): "+i.tips[0]}).join("\n")+"\n\nTotal $"+tot+", left $"+(b-tot);
+o.innerHTML=pick.map(function(i){return '<div class="li"><span>'+i.t+(S.prem?'<br><small style="color:var(--mute)">'+i.tips[0]+'</small>':'')+'</span><b>$'+price(i)+'</b></div>'}).join("")+'<div class="li"><b>Total</b><b>$'+tot+'</b></div>'+(S.prem?'':'<div class="box">Free plans show 2 items. <a href="#premium" data-prem style="color:var(--brown)">Go Premium</a> for the full room, tips and a download.</div>');
+document.getElementById("pdl").hidden=!S.prem};
+document.getElementById("pdl").onclick=function(){if(!window.claude||!lastPlan)return;window.claude.use("downloads").then(function(d){if(!d){toast("Downloads aren’t available here");return}return d.save({filename:"decor-plan.txt",data:lastPlan})}).catch(function(){})};
+document.getElementById("ago").onclick=async function(){
+var ai=document.getElementById("ai").value.trim(),ao=document.getElementById("aout"),n=ld("decor-ai",0);
+if(!S.prem&&n>=1){ao.textContent="Your free design is used. Go Premium for unlimited designs.";return}
+if(!ai){ao.textContent="Describe your room first: size, light and the feel you want.";return}
+try{var s=window.claude&&await window.claude.use("sample");if(!s){ao.textContent="The designer isn’t available in this view.";return}
+ao.textContent="Designing…";
+await s("You are DECOR, a warm, expert interior designer. The palette is always white, brown and black. Reply in under 180 words with: a style name, a palette with hex codes, 4 furniture picks, 3 decor picks and one layout tip. Plain text, no markdown symbols. Room brief: "+ai,{cache:false,onText:function(x){ao.textContent=x.text}});
+if(!S.prem)sv("decor-ai",n+1)}catch(e){ao.textContent="The designer couldn’t answer just now. Try again in a moment."}};
+var PAYPAL="YOUR-PAYPAL-USERNAME";
+function conf(){var h="",cs=["#c9a36b","#7a5230","#ffffff","#1d1d1f","#e8cfae"];for(var k=0;k<70;k++)h+='<i style="left:'+(Math.random()*100)+'%;background:'+cs[k%5]+';animation-delay:'+(Math.random()*.8)+'s;animation-duration:'+(2+Math.random()*1.6)+'s"></i>';return '<div class="conf">'+h+'</div>'}
+function payUI(s){var d=document.getElementById("pay"),c=document.getElementById("pc"),ph=PAYPAL.indexOf("YOUR")==0,h;
+if(s==1)h='<div class="in"><h3>DECOR Premium</h3><div class="price">$9<small> one-time</small></div><p style="color:var(--mute)">Every idea, color and tool, unlocked.</p><a class="pill brown" id="pl" target="_blank" rel="noopener" href="https://www.paypal.me/'+PAYPAL+'/9USD" style="display:inline-block;text-decoration:none;padding:12px 26px">Pay $9 with PayPal</a>'+(ph?'<div class="err">Owner setup: put your PayPal username in the page code.</div>':'')+'</div>';
+else if(s==2)h='<div class="in"><h3>Confirm your payment</h3><p style="color:var(--mute);margin:0">Enter the transaction ID from your PayPal receipt.</p><input id="tid" maxlength="17" autocomplete="off" aria-label="Transaction ID"><div class="err" id="perr" aria-live="polite"></div><div class="row2" style="justify-content:center"><button class="pill brown" id="pcf">Confirm payment</button><button class="pill ghost" id="pb">Back</button></div></div>';
+else if(s==3)h='<div class="in"><div class="spin"></div><p style="color:var(--mute)">Saving your receipt…</p></div>';
+else h='<div class="in">'+conf()+'<div class="okc"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44"/><path d="M28 50 l14 14 l28 -32"/></svg></div><h3 style="animation:rise .6s .4s backwards">Welcome to Premium</h3><p style="color:var(--mute);animation:rise .6s .6s backwards">You now have every idea, color and tool.</p><button class="pill brown" id="pst" style="animation:rise .6s .8s backwards">Start exploring</button></div>';
+c.innerHTML=h;if(!d.open)d.showModal()}
+document.addEventListener("click",function(e){var t=e.target.closest("#pl,#pcf,#pb,#pst,#px");if(!t)return;var d=document.getElementById("pay");
+if(t.id=="pl"){payUI(2);return}if(t.id=="pb"){payUI(1);return}
+if(t.id=="pst"||t.id=="px"){d.close();if(t.id=="pst")document.getElementById("ideas").scrollIntoView();return}
+var v=document.getElementById("tid").value.trim().toUpperCase();if(!/^[A-Z0-9]{17}$/.test(v)){document.getElementById("perr").textContent="That ID doesn’t look right. It has 17 letters and numbers.";return}
+sv("decor-receipt",v);payUI(3);setTimeout(function(){unlock();payUI(4)},1600)});
+var LNG=ld("decor-lng","en"),OR=new WeakMap(),TR={},DICT=[["Ideas","Idées","أفكار"],["Studio","Studio","الاستوديو"],["Premium","Premium","بريميوم"],["Go Premium","Passer à Premium","اشترك الآن"],["Premium ✓","Premium ✓","بريميوم ✓"],
+["Make every room feel like yours.","Donnez à chaque pièce votre style.","اجعل كل غرفة تشبهك."],["Browse furniture and decoration ideas in warm whites, rich browns and deep black.","Découvrez des idées de meubles et de déco en blancs chauds, bruns riches et noir profond.","تصفّح أفكار الأثاث والديكور بالأبيض الدافئ والبني الغني والأسود العميق."],["Explore ideas","Explorer les idées","استكشف الأفكار"],["Try Premium","Essayer Premium","جرّب بريميوم"],
+["ideas to explore","idées à explorer","فكرة للاستكشاف"],["rooms covered","pièces couvertes","غرف مغطاة"],["designer exclusives","exclusivités designer","حصريات المصممين"],["colors, done right","couleurs bien assorties","ألوان منسّقة بإتقان"],
+["Ideas for every corner.","Des idées pour chaque coin.","أفكار لكل زاوية."],["Save what you love. Premium ideas are marked with a black tag.","Gardez vos coups de cœur. Les idées Premium portent une étiquette noire.","احفظ ما تحب. أفكار بريميوم عليها وسم أسود."],["Search sofa, lamp, bedroom…","Rechercher canapé, lampe, chambre…","ابحث عن أريكة، مصباح، غرفة نوم…"],
+["Featured","En vedette","المميّزة"],["Price: low to high","Prix croissant","السعر: من الأقل"],["Price: high to low","Prix décroissant","السعر: من الأعلى"],["Find my style","Trouver mon style","اكتشف أسلوبي"],
+["All","Tout","الكل"],["Furniture","Meubles","أثاث"],["Decor","Déco","ديكور"],["Living room","Salon","غرفة المعيشة"],["Bedroom","Chambre","غرفة النوم"],["Kitchen","Cuisine","المطبخ"],["Outdoor","Extérieur","الخارج"],["Workspace","Bureau","مكتب"],["Entryway","Entrée","المدخل"],["Saved","Favoris","المحفوظة"],
+["Why DECOR.","Pourquoi DECOR.","لماذا ديكور؟"],["Curated palettes","Palettes sélectionnées","لوحات ألوان منتقاة"],["Save your favorites","Gardez vos favoris","احفظ مفضلاتك"],["Real placement tips","Conseils d’agencement","نصائح حقيقية للتوزيع"],
+["Design studio.","Atelier de design.","استوديو التصميم."],["Room planner","Planificateur de pièce","مخطط الغرفة"],["Ask the designer","Demandez au designer","اسأل المصمم"],["Mood board","Planche d’ambiance","لوحة الإلهام"],["Room","Pièce","الغرفة"],["Budget in dollars","Budget en dollars","الميزانية بالدولار"],["Build my plan","Créer mon plan","أنشئ خطتي"],["Download plan","Télécharger le plan","حمّل الخطة"],["Your room","Votre pièce","غرفتك"],["Design it","Concevoir","صمّم"],["1 free try","1 essai gratuit","محاولة مجانية"],["Unlimited","Illimité","غير محدود"],
+["DECOR Premium.","DECOR Premium.","ديكور بريميوم."],["Better designs, full guides, and shopping lists for every idea.","De meilleurs designs, des guides complets et des listes d’achats pour chaque idée.","تصاميم أفضل وأدلة كاملة وقوائم تسوّق لكل فكرة."],["Free","Gratuit","مجاني"],["Keep browsing","Continuer à parcourir","واصل التصفح"],["Start Premium","Démarrer Premium","ابدأ بريميوم"],["You’re Premium","Vous êtes Premium","أنت مشترك"],["one-time","paiement unique","دفعة واحدة"],
+["Placement tips","Conseils d’agencement","نصائح التوزيع"],["Shopping checklist","Liste d’achats","قائمة التسوّق"],["Save idea","Enregistrer","احفظ الفكرة"],["Remove from saved","Retirer des favoris","إزالة من المحفوظات"],["Add your photo","Ajouter votre photo","أضف صورتك"],["Furniture color","Couleur du meuble","لون الأثاث"],["Wall color","Couleur du mur","لون الجدار"],["Color combinations","Combinaisons de couleurs","تنسيقات الألوان"],["Copy palette","Copier la palette","انسخ اللوحة"],["Reset","Réinitialiser","إعادة ضبط"],["Premium idea","Idée Premium","فكرة بريميوم"],["Unlock the full guide, palette and shopping list.","Débloquez le guide, la palette et la liste d’achats.","افتح الدليل واللوحة وقائمة التسوّق."],
+["Every idea, color and tool, unlocked.","Toutes les idées, couleurs et outils, débloqués.","كل الأفكار والألوان والأدوات مفتوحة لك."],["Pay $9 with PayPal","Payer 9 $ avec PayPal","ادفع 9 $ عبر PayPal"],["Confirm your payment","Confirmez votre paiement","أكّد دفعتك"],["Enter the transaction ID from your PayPal receipt.","Saisissez l’ID de transaction de votre reçu PayPal.","أدخل رقم المعاملة من إيصال PayPal."],["Confirm payment","Confirmer le paiement","تأكيد الدفع"],["Back","Retour","رجوع"],["Saving your receipt…","Enregistrement du reçu…","جارٍ حفظ الإيصال…"],["That ID doesn’t look right. It has 17 letters and numbers.","Cet ID semble incorrect. Il comporte 17 lettres et chiffres.","هذا الرقم غير صحيح. يتكون من 17 حرفًا ورقمًا."],["Welcome to Premium","Bienvenue dans Premium","أهلًا بك في بريميوم"],["You now have every idea, color and tool.","Vous avez maintenant toutes les idées, couleurs et outils.","صار لديك كل الأفكار والألوان والأدوات."],["Start exploring","Commencer","ابدأ الاستكشاف"],["Premium is a one-time $9 payment through PayPal.","Premium est un paiement unique de 9 $ via PayPal.","بريميوم دفعة واحدة بقيمة 9 دولارات عبر PayPal."]];
+DICT.forEach(function(r){TR[r[0]]={fr:r[1],ar:r[2]}});
+function tx(s){var k=s.trim();if(TR[k])return s.replace(k,TR[k][LNG]);if(k.indexOf(" · ")>0)return s.replace(k,k.split(" · ").map(function(p){return TR[p]?TR[p][LNG]:p}).join(" · "));return s}
+function tr(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n,a=[];while(n=w.nextNode())a.push(n);a.forEach(function(n){var pn=n.parentNode&&n.parentNode.nodeName;if(pn=="SCRIPT"||pn=="STYLE")return;var o=OR.get(n);if(o===undefined){o=n.nodeValue;OR.set(n,o)}var v=LNG=="en"?o:tx(o);if(n.nodeValue!==v)n.nodeValue=v})}
+function setLang(l){LNG=l;sv("decor-lng",l);var r=document.documentElement;r.lang=l;r.dir=l=="ar"?"rtl":"ltr";document.getElementById("lng").value=l;tr();document.querySelectorAll("[placeholder]").forEach(function(e){var o=e.dataset.o||(e.dataset.o=e.getAttribute("placeholder"));e.placeholder=l=="en"?o:(TR[o]?TR[o][l]:o)})}
+document.getElementById("lng").onchange=function(){setLang(this.value)};
+var raf=0;new MutationObserver(function(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;tr()})}).observe(document.body,{childList:true,subtree:true});
+TR["Remove photo"]={fr:"Retirer la photo",ar:"إزالة الصورة"};
+document.addEventListener("click",function(e){var t=e.target.closest("[data-rp]");if(!t)return;var id=+t.dataset.rp;delete S.ph[id];sv("decor-photos",S.ph);show();openIdea(id);toast("Photo removed")});
+S.col=ld("decor-col",{});
+var FC=[["Cocoa","#7a5230"],["Walnut","#5d3e23"],["Oak","#b98a54"],["Ivory","#faf6ef"],["Black","#121212"],["Linen","#efe6d8"],["Charcoal","#2b2b2b"],["Sage","#7d8f6c"],["Terracotta","#b8613f"],["Navy","#26364f"],["Mist","#b9c4c9"],["Rose clay","#c9a08f"]],
+WC=[["White","#faf6ef"],["Cream","#efe7de"],["Sand","#e3d3bd"],["Mocha","#b89a7c"],["Espresso","#2b2118"],["Sage mist","#eef0e6"]],
+CB=[["Quiet Luxury","#efe7de","#7a5230","#1d1d1f"],["Cloud House","#faf6ef","#efe6d8","#946239"],["Walnut and Cream","#f3ece2","#5d3e23","#faf6ef"],["Hotel Noir","#1d1d1f","#c49a6c","#f5f1ec"],["Espresso Night","#2b2118","#f5f1ec","#c49a6c"],["Sage Retreat","#eef0e6","#7d8f6c","#4a3222"],["Terracotta Sun","#f6e9de","#b8613f","#1d1d1f"],["Midnight Navy","#e8ecf0","#26364f","#c9a36b"]];
+function custom(i,lk){if(lk||S.ph[i.id])return;var o=document.getElementById("cz");if(o)o.remove();S.cur=i.id;var th=S.col[i.id]||i.th,
+f=FC.map(function(c,n){var l=!S.prem&&n>4;return '<button class="dot'+(l?' lk':'')+'" data-fc="'+n+'" aria-pressed="'+(th[1]==c[1])+'" aria-label="'+c[0]+(l?' (Premium)':'')+'" title="'+c[0]+(l?' · Premium':'')+'" style="background:'+c[1]+'"></button>'}).join(""),
+w=WC.map(function(c,n){return '<button class="dot" data-wc="'+n+'" aria-pressed="'+(th[0]==c[1])+'" aria-label="Wall '+c[0]+'" title="Wall '+c[0]+'" style="background:'+c[1]+'"></button>'}).join(""),
+m=CB.map(function(c,n){var l=!S.prem&&n>2;return '<button class="cmb'+(l?' lk':'')+'" data-cb="'+n+'"><span><i style="background:'+c[1]+'"></i><i style="background:'+c[2]+'"></i><i style="background:'+c[3]+'"></i></span><b>'+c[0]+'</b>'+(l?'<small class="badge">Premium</small>':'')+'</button>'}).join("");
+document.querySelector("#dc .in p").insertAdjacentHTML("afterend",'<div class="box" id="cz"><b>Furniture color</b><div class="dots">'+f+'</div><b style="margin-top:12px">Wall color</b><div class="dots">'+w+'</div><b style="margin-top:12px">Color combinations</b>'+m+'<div class="row2"><button class="pill ghost" data-cp="1">Copy palette</button><button class="pill ghost" data-rs="1">Reset</button></div></div>')}
+document.addEventListener("click",function(e){var t=e.target.closest("[data-fc],[data-wc],[data-cb],[data-cp],[data-rs]");if(!t)return;
+var id=S.cur,i=ideas.filter(function(x){return x.id==id})[0],th=(S.col[id]||i.th).slice();
+if(t.dataset.fc!==undefined){if(!S.prem&&+t.dataset.fc>4){toast("Premium color. Go Premium to unlock all 12.");return}th[1]=FC[+t.dataset.fc][1]}
+else if(t.dataset.wc!==undefined){th[0]=WC[+t.dataset.wc][1]}
+else if(t.dataset.cb!==undefined){if(!S.prem&&+t.dataset.cb>2){toast("Premium combination. Go Premium to unlock all 8.");return}var b=CB[+t.dataset.cb];th=[b[1],b[2],b[3]]}
+else if(t.dataset.cp!==undefined){var tx="DECOR palette: wall "+th[0]+", furniture "+th[1]+", accent "+th[2];(navigator.clipboard?navigator.clipboard.writeText(tx):Promise.reject()).then(function(){toast("Palette copied")},function(){toast(tx)});return}
+else{delete S.col[id];sv("decor-col",S.col);var s0=document.querySelector("#dc>svg");if(s0)s0.outerHTML=pic(i);custom(i,false);return}
+S.col[id]=th;sv("decor-col",S.col);var s1=document.querySelector("#dc>svg,#dc>img");if(s1)s1.outerHTML=pic(i);custom(i,false)});
+document.getElementById("dlg").addEventListener("close",function(){show()});
+S.srt="";S.list=function(){var a=ideas.slice();if(S.srt)a.sort(function(x,y){return S.srt=="a"?price(x)-price(y):price(y)-price(x)});return a};
+document.getElementById("srt").onchange=function(){S.srt=this.value;show()};
+document.getElementById("thm").onclick=function(){var r=document.documentElement,c=r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");r.dataset.theme=c=="dark"?"light":"dark"};
+function mood(){var m=document.getElementById("mb"),a=ideas.filter(function(i){return S.saved.indexOf(i.id)>-1});
+if(!a.length){m.innerHTML='<p style="color:var(--mute);font-size:15px">Tap the heart on ideas to build your board.</p>';return}
+var v=S.prem?a:a.slice(0,2),pal=[];a.forEach(function(i){i.pal.forEach(function(c){if(pal.indexOf(c)<0)pal.push(c)})});
+m.innerHTML='<div class="mb">'+v.map(function(i){return pic(i)}).join("")+'</div>'+(S.prem?'<div class="sw">'+pal.slice(0,8).map(function(c){return '<i data-hex="'+c+'" title="Copy '+c+'" style="background:'+c+'"></i>'}).join("")+'</div>':'<div class="box">Free boards show 2 ideas. <a href="#premium" data-prem style="color:var(--brown)">Go Premium</a> for the full board and a combined palette.</div>')}
+var _s=show;show=function(){_s();mood()};
+var QZ=[{q:"Which room are you styling?",o:["Living room","Bedroom","Kitchen","Outdoor"],k:"c"},{q:"Pick a feeling.",o:["Calm and soft","Bold and dark","Warm and cozy"],k:"m"},{q:"What can one piece cost?",o:["Under $200","$200 to $800","No limit"],k:"b"}],qa={},qi=0;
+function quiz(){var d=document.getElementById("dc"),s=QZ[qi],dl=document.getElementById("dlg");
+if(s){d.innerHTML='<div class="in" style="padding-top:40px"><h3 id="dt">'+s.q+'</h3>'+s.o.map(function(o){return '<button class="qopt" data-qa="'+o+'">'+o+'</button>'}).join("")+'</div>'}
+else{var room=qa.c,cap={"Under $200":200,"$200 to $800":800,"No limit":1e9}[qa.b],names={"Calm and soft":"Quiet Linen","Bold and dark":"Noir Espresso","Warm and cozy":"Cozy Walnut"},
+pool=ideas.filter(function(i){return i.c.indexOf(room)>-1&&price(i)<=cap});
+if(qa.m=="Bold and dark")pool.sort(function(a,b){return (b.p||0)-(a.p||0)});else if(qa.m=="Calm and soft")pool.sort(function(a,b){return price(a)-price(b)});
+var n=S.prem?5:3;
+d.innerHTML='<div class="in" style="padding-top:40px"><h3 id="dt">'+names[qa.m]+'</h3><p style="color:var(--mute);margin:0 0 8px">Your style for the '+room.toLowerCase()+'</p>'+(pool.length?pool.slice(0,n).map(function(i){return '<button class="qopt" data-o="'+i.id+'"><b>'+i.t+'</b> <span style="color:var(--mute)">$'+price(i)+(i.p?' · Premium':'')+'</span></button>'}).join(""):'<div class="box">Nothing matches that budget. Try a higher one.</div>')+(S.prem?'':'<div class="box">Free results show 3 ideas. <a href="#premium" data-prem style="color:var(--brown)">Go Premium</a> to see 5.</div>')+'<div class="row2"><button class="pill brown" data-qr="1">Retake quiz</button></div></div>'}
+if(!dl.open)dl.showModal()}
+document.getElementById("qz").onclick=function(){qi=0;qa={};quiz()};
+document.addEventListener("click",function(e){var t=e.target.closest("[data-qa],[data-qr],[data-hex]");if(!t)return;
+if(t.dataset.hex){var h=t.dataset.hex;(navigator.clipboard?navigator.clipboard.writeText(h):Promise.reject()).then(function(){toast("Copied "+h)},function(){toast(h)});return}
+if(t.dataset.qr!==undefined){qi=0;qa={};quiz();return}qa[QZ[qi].k]=t.dataset.qa;qi++;quiz()});
+var gd=document.getElementById("grid");
+gd.addEventListener("mousemove",function(e){var c=e.target.closest(".card");if(!c)return;var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="perspective(700px) rotateY("+x*8+"deg) rotateX("+(-y*8)+"deg) translateY(-6px)"});
+gd.addEventListener("mouseout",function(e){var c=e.target.closest(".card");if(c&&!c.contains(e.relatedTarget))c.style.transform=""});
+function count(){document.querySelectorAll("[data-n]").forEach(function(el){var n=+el.dataset.n,t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})}
+var els=document.querySelectorAll("section>h2,section>.sub,.feat div,.plan,.pan,#stats");
+if(window.IntersectionObserver){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);if(e.target.id=="stats")count()}})},{threshold:.15});els.forEach(function(el){el.classList.add("rv");io.observe(el)})}else{count()}
+var du=document.getElementById("dust");for(var k=0;k<16;k++){var di=document.createElement("i");di.style.left=(k*6.2+Math.random()*4)+"%";di.style.animationDelay=(Math.random()*9)+"s";di.style.animationDuration=(7+Math.random()*6)+"s";du.appendChild(di)}
+chipsUI();show();upd();setLang(LNG);
+TR["Use this photo for\u2026"]={fr:"Utiliser cette photo pour\u2026",ar:"\u0627\u0633\u062a\u062e\u062f\u0645 \u0647\u0630\u0647 \u0627\u0644\u0635\u0648\u0631\u0629 \u0644\u0640\u2026"};
+var PEND=null;
+function savePhoto(file,id){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var w=Math.min(900,im.width),c=document.createElement("canvas");c.width=w;c.height=Math.round(im.height*w/im.width);c.getContext("2d").drawImage(im,0,0,c.width,c.height);S.ph[id]=c.toDataURL("image/jpeg",.8);sv("decor-photos",S.ph);document.getElementById("dlg").close();show();openIdea(id);toast("Photo added")};im.src=r.result};r.readAsDataURL(file)}
+function pickIdea(){var d=document.getElementById("dc"),dl=document.getElementById("dlg");d.innerHTML='<div class="in" style="padding-top:40px"><h3 id="dt">Use this photo for\u2026</h3>'+ideas.filter(function(i){return !i.p||S.prem}).map(function(i){return '<button class="qopt" data-ph="'+i.id+'">'+i.t+'</button>'}).join("")+'</div>';if(!dl.open)dl.showModal()}
+document.addEventListener("click",function(e){var t=e.target.closest("[data-ph]");if(t&&PEND)savePhoto(PEND,+t.dataset.ph)});
+if("launchQueue" in window){launchQueue.setConsumer(function(lp){if(!lp.files||!lp.files.length)return;lp.files[0].getFile().then(function(f){PEND=f;pickIdea()})})}
+(function(){var p=new URLSearchParams(location.search),raw=decodeURIComponent(p.get("idea")||""),m=raw.match(/(\d+)\s*$/);
+if(m&&ideas.some(function(i){return i.id==+m[1]}))openIdea(+m[1]);
+var sh=((p.get("title")||"")+" "+(p.get("text")||"")).trim();if(sh){document.getElementById("q").value=sh;S.q=sh.toLowerCase();show();document.getElementById("ideas").scrollIntoView()}
+if(p.get("note")){document.getElementById("studio").scrollIntoView();document.getElementById("ai").focus()}})();
+if("serviceWorker" in navigator){navigator.serviceWorker.ready.then(async function(r){
+try{if(r.sync)await r.sync.register("decor-sync")}catch(e){}
+try{if(r.periodicSync){var st=await navigator.permissions.query({name:"periodic-background-sync"});if(st.state==="granted")await r.periodicSync.register("decor-refresh",{minInterval:864e5})}}catch(e){}})}
+window.enablePush=async function(key){var r=await navigator.serviceWorker.ready;if(await Notification.requestPermission()!=="granted")return null;var b=key.replace(/-/g,"+").replace(/_/g,"/"),raw=atob(b+"=".repeat((4-b.length%4)%4)),u=new Uint8Array(raw.length);for(var i=0;i<raw.length;i++)u[i]=raw.charCodeAt(i);return JSON.stringify(await r.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:u}))};
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}</script>
+</body>
+</html>
